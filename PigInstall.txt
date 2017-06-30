@@ -1,0 +1,19 @@
+Download Pig from 
+http://pig.apache.org/releases.html
+
+1) untar and place in home dir 
+
+2) update bash_profile 
+export PIG_HOME=$HOME/<Pig home dir>
+export PATH="$PIG_HOME/bin:$PATH"
+export JAVA_HOME = < Java home dir> (On Mac use $(/usr/libexec/java_home))
+
+3) update $PIG_HOME/conf/pig.properties 
+fs.defaultFS=hdfs://localhost:9000
+
+start jobhistory server in the hadoop folder 
+$ sbin/mr-jobhistory-daemon.sh start historyserver  --config $HADOOP_CONF_DIR 
+
+Start Pig 
+$ pig -x mapreduce 
+
